@@ -34,6 +34,10 @@ import {
     IconAgendamento,
     IconZap,
     TitleZap,
+    TextZap,
+    TextAgendamento,
+    TitleAgendamento,
+
 } from './styles';
 
 const Icons = {
