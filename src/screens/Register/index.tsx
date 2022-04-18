@@ -129,7 +129,7 @@ export const Register = () =>{
                     onPress={handleSubmit(handleRegister)}
                 />
             </Form>
-                <Modal visible={serviceModalOpen}>
+            <Modal visible={serviceModalOpen}>
                 <Service 
                     service={service}
                     setService={setService}
