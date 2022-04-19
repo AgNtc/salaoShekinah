@@ -81,7 +81,7 @@ export const Login = () =>{
               *Consultar seus Agendamentos Cadastrados {`\n`}
             </TextMain>
             <TitleAbout onPress={handleOpenModal}>
-                Sobre o App
+                Clique aqui para ver nossos serviços
             </TitleAbout>
           </Footer>
           <Modal visible={aboutModalOpen}>
