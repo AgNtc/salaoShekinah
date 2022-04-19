@@ -27,6 +27,7 @@ import {
     Footer,
     TextMain,
     FooterWrapper,
+    TitleAbout
 } from './styles';
 
 
@@ -47,56 +48,46 @@ export const Login = () =>{
 
     
 
-    return(
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+    return (
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Container>
-            <Header>
-                <TitleWrapper>
-                    <LogoSvg3 
-                        width={RFValue(200)}
-                        height={RFValue(150)}
-                        marginTop={RFValue(50)}
-                    />
-                    <Title>
-                 Bem Vindo ao Salão Shekinah!{`\n`}
-                    </Title>
-                </TitleWrapper>
+          <Header>
+            <TitleWrapper>
+              <LogoSvg3
+                width={RFValue(200)}
+                height={RFValue(150)}
+                marginTop={RFValue(50)}
+              />
+              <Title>Bem Vindo ao Salão Shekinah!{`\n`}</Title>
+            </TitleWrapper>
 
-                <LoginTitle>
-                    Faça seu login com {`\n`}
-                    uma das contas abaixo {`\n`}
-                </LoginTitle>
-            </Header>
+            <LoginTitle>
+              Faça seu login com {`\n`}
+              uma das contas abaixo {`\n`}
+            </LoginTitle>
+          </Header>
 
-            <Footer>
-                <FooterWrapper>
-                    <LoginSocialButton 
-                    title='Entrar com Google'
-                    svg={GoogleSvg}
-                    />
-                    <LoginSocialButton 
-                    title='Entrar com Apple'
-                    svg={AppSvg}
-                    />
-                </FooterWrapper>
-                <TextMain>
-                Agora em sua versão app com uma cara {`\n`}
-                totalmente nova para melhor atende-lo. {`\n`}
-                trazendo novas funcionalidades: {`\n`}
-                    {`\n`}  
-                    *Agendamentos diretamente do seu Smartphone {`\n`}
-                    *Consultar seus Agendamentos Cadastrados {`\n`}
-                </TextMain>
-                <Text onPress={handleOpenModal}>
-                    Alguns Procedimentos
-                </Text>
-
-            </Footer>
-            <Modal visible={aboutModalOpen}>
-                        <About closeAbout={handleCloseModal}/>
-            </Modal>
-                    
-            </Container>
-        </TouchableWithoutFeedback>
-    )
+          <Footer>
+            <FooterWrapper>
+              <LoginSocialButton title="Entrar com Google" svg={GoogleSvg} />
+              <LoginSocialButton title="Entrar com Apple" svg={AppSvg} />
+            </FooterWrapper>
+            <TextMain>
+              Agora em sua versão app com uma cara {`\n`}
+              totalmente nova para melhor atende-lo. {`\n`}
+              trazendo novas funcionalidades: {`\n`}
+              {`\n`}
+              *Agendamentos diretamente do seu Smartphone {`\n`}
+              *Consultar seus Agendamentos Cadastrados {`\n`}
+            </TextMain>
+            <TitleAbout onPress={handleOpenModal}>
+                Sobre o App
+            </TitleAbout>
+          </Footer>
+          <Modal visible={aboutModalOpen}>
+            <About closeAbout={handleCloseModal} />
+          </Modal>
+        </Container>
+      </TouchableWithoutFeedback>
+    );
 };

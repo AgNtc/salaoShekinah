@@ -1,22 +1,18 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { View } from 'react-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
     flex: 1;
-    width: 100%;
 `;
 
-export const Header= styled.View`
-    width: 100%;
-    height: ${RFValue(113)}px;
+export const Header = styled.View`
+  width: 100%;
 
-    background-color: ${({ theme }) => theme.colors.secondary};
-    
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 19px;
+  background-color: ${({ theme }) => theme.colors.secondary};
+
+  justify-content: flex-end;
+  align-items: center;
 `;
 
 export const Footer= styled.View`
@@ -24,15 +20,20 @@ export const Footer= styled.View`
     padding: 24px;
 `;
 
-export const Title= styled.Text`
+export const Title = styled.Text`
+  font-family: ${({ theme }) => theme.fonts.medium};
+  color: ${({ theme }) => theme.colors.text_dark};
+  font-size: ${RFValue(18)}px;
+  text-align: center;
+
+  padding-bottom: 20px;
 
 `;
 export const MidContainer = styled.View`
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
     padding: 0 20px;
+    flex-direction: row;
 `;
 
 export const Icon = styled(MaterialIcons)`
@@ -64,4 +65,11 @@ export const TextAgendamento = styled.Text`
 
 export const TextZap = styled.Text`
     color: ${({ theme }) => theme.colors.text};
+`;
+
+export const ImgContainer = styled.ScrollView.attrs({
+  horizontal: true,
+  showsHorizontalScrollIndicator: false,
+})`
+    flex-direction: row;
 `;
