@@ -1,5 +1,5 @@
 import React from "react";
-import { 
+import {
     Container,
     Category,
     Icon,
@@ -10,7 +10,7 @@ interface Props {
     onPress: () => void;
 }
 
-export const ServiceSelect = ({title, onPress}:Props) => {
+export const ServiceSelect = ({ title, onPress }: Props) => {
     return (
         <Container onPress={onPress}>
             <Category>

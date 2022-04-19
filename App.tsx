@@ -3,7 +3,7 @@ import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 import { NavigationContainer } from '@react-navigation/native';
 
-// import { AppRoutes } from './src/routes/app.routes';
+import { AppRoutes } from './src/routes/app.routes';
 import {
   useFonts,
   Quicksand_400Regular,
@@ -12,6 +12,7 @@ import {
 } from '@expo-google-fonts/quicksand';
 import theme from './src/global/styles/theme';
 import { Login } from './src/screens/Login';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 
 export default function App() {
@@ -27,12 +28,14 @@ export default function App() {
 
 
   return(
+    <GestureHandlerRootView style={{ flex: 1 }}>
     <ThemeProvider theme={theme} >
       <NavigationContainer>
         {/* <AppRoutes /> */}
         <Login />
       </NavigationContainer>
     </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
 

@@ -13,9 +13,7 @@ import { RFValue } from 'react-native-responsive-fontsize';
 
 import AppSvg from '../../assets/apple.svg';
 import GoogleSvg from '../../assets/google.svg'
-import ZapSvg from '../../assets/whatsapp1.svg'
 import LogoSvg3 from '../../assets/Cabelereiro3.svg';
-import ImgMain from '../../assets/imgMain.svg';
 
 import { LoginSocialButton } from '../../components/LoginSocialButton';
 import { About } from '../About';
@@ -29,25 +27,12 @@ import {
     Footer,
     TextMain,
     FooterWrapper,
-    MidContainer,
-    Icon,
-    IconAgendamento,
-    IconZap,
-    TitleZap,
-    TextZap,
-    TextAgendamento,
-    TitleAgendamento,
-
 } from './styles';
 
-const Icons = {
-    agendamento: 'schedule',
-}
 
 
-const url = 'https://api.whatsapp.com/send?phone=5511986364371';
 
-export const Login = () =>{
+export const Login = () =>{    
     const [aboutModalOpen, setAboutModalOpen] = useState(false);
 
     const handleOpenModal = () => {
@@ -60,11 +45,10 @@ export const Login = () =>{
         console.log('fechou');
     };
 
-    console.log('modal', aboutModalOpen);
     
 
     return(
-        <ScrollView>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <Container>
             <Header>
                 <TitleWrapper>
@@ -83,6 +67,7 @@ export const Login = () =>{
                     uma das contas abaixo {`\n`}
                 </LoginTitle>
             </Header>
+
             <Footer>
                 <FooterWrapper>
                     <LoginSocialButton 
@@ -102,50 +87,16 @@ export const Login = () =>{
                     *Agendamentos diretamente do seu Smartphone {`\n`}
                     *Consultar seus Agendamentos Cadastrados {`\n`}
                 </TextMain>
-               <ImgMain 
-                        width={RFValue(320)}
-                        height={RFValue(300)}
-                        alignSelf="center"
-                    />
-
-                <MidContainer>
-                    <IconAgendamento>
-                        <Icon name={Icons.agendamento}/>
-                        <TitleAgendamento>
-                        Horário de Atendimento
-                        </TitleAgendamento>
-                        <TextAgendamento>
-                            De segunda a sabado {`\n`}
-                            das 08:00 as 18:00 horas.
-                        </TextAgendamento>
-                    </IconAgendamento>
-
-                    <IconZap onPress={() => Linking.openURL(url)}>
-                            <ZapSvg 
-                                width={RFValue(58)}
-                                height={RFValue(58)}
-                            />
-                            {`\n`}
-                            <TitleZap>
-                                Contato
-                            </TitleZap>
-                            {`\n`}
-                        <TextZap>
-                            Clique no balão acima para {`\n`}
-                            entrar em contato conosco {`\n`}
-                            via Whatsapp
-                        </TextZap>
-
-                    </IconZap>
-                </MidContainer>
                 <Text onPress={handleOpenModal}>
-                        Alguns Procedimentos
+                    Alguns Procedimentos
                 </Text>
+
             </Footer>
-                    <Modal visible={aboutModalOpen}>
+            <Modal visible={aboutModalOpen}>
                         <About closeAbout={handleCloseModal}/>
-                    </Modal>
+            </Modal>
+                    
             </Container>
-        </ScrollView>
+        </TouchableWithoutFeedback>
     )
 };

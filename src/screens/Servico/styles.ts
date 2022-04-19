@@ -29,16 +29,16 @@ export const Title = styled.Text`
     font-size: ${RFValue(18)}px;
 `;
 
-// export const ServiceItem = styled.TouchableOpacity<CategoryProps>`
-//     width: 100%;
-//     padding: ${RFValue(15)}px;
+export const ServiceItem = styled.TouchableOpacity<CategoryProps>`
+    width: 100%;
+    padding: ${RFValue(15)}px;
 
-//     flex-direction: row;
-//     align-items: center;
+    flex-direction: row;
+    align-items: center;
 
-//     background-color: ${({ isActive }) => 
-//     isActive ? theme.colors.gray :theme.colors.background};
-// `;
+    background-color: ${({ isActive }) => 
+    isActive ? theme.colors.gray :theme.colors.background};
+`;
 
 export const Icon = styled(Feather)`
     font-size: ${RFValue(20)}px;
