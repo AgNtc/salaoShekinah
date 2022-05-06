@@ -18,7 +18,6 @@ import {
 interface Service{
     key:string;
     name:string;
-
 }
 interface CategoryProps{
     service: Service;

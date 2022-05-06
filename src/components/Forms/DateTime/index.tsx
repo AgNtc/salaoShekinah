@@ -2,10 +2,15 @@ import React, {useState} from 'react';
 import DateTimePicker from '@react-native-community/datetimepicker';
 
 
-import { Container ,
-
+import {
+    Container ,
+    DateButton,
+    TimeButton,
+    SelectedDateTimeText,
+    SelectedDateTimeContainer
 } from './styles';
-import { Text, View, Button} from 'react-native'
+import { Text, View, } from 'react-native'
+import { Button } from '../Button';
 
 export const DateTime = () => {
     const [date, setDate] = useState(new Date(1598051730000));
@@ -33,14 +38,15 @@ export const DateTime = () => {
 
     return(
         <Container>
-            <View>
-                <View>
-                    <Button onPress={showDatepicker} title="Show date picker!" />
-                </View>
-                <View>
-                    <Button onPress={showTimepicker} title="Show time picker!" />
-                </View>
-                <Text>selected: {date.toLocaleString()}</Text>
+                <DateButton>
+                    <Button onPress={showDatepicker} title="Seleciona a data" />
+                </DateButton>
+                <TimeButton>
+                    <Button onPress={showTimepicker} title="Seleciona o horário" />
+                </TimeButton>
+                <SelectedDateTimeContainer>
+                    <SelectedDateTimeText>Data e Horário Selecionado: {date.toLocaleString()}</SelectedDateTimeText>
+                </SelectedDateTimeContainer>
                 {show && (
                     <DateTimePicker
                         testID="dateTimePicker"
@@ -50,7 +56,6 @@ export const DateTime = () => {
                         onChange={onChange}
                     />
                 )}
-            </View>
         </Container>
     )
 }

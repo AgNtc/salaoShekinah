@@ -1,5 +1,7 @@
-import React from "react";
-import { Text, View } from "react-native";
+import React, { useState } from "react";
+import { Text } from "react-native";
+import { AgendamentoCard, AgendamentoCardProps } from "../../components/AgendamentoCard";
+import { agendamentos } from "../../utils/agendamentos";
 import { 
   Container,
   Header,
@@ -11,13 +13,19 @@ import {
   UserName,
   Icon,
   Title,
+  TitleAgendamento,
   LogoutButton,
+  Agendamentos,
+  AgendamentoList,
 } 
 from "./styles";
 
-
+export interface DatalistProps extends AgendamentoCardProps{
+  id:string;
+}
 
 export const Dashboard = () =>{
+  const [data, setData] = useState(agendamentos);
     return (
       <Container>
         <Header>
@@ -37,7 +45,12 @@ export const Dashboard = () =>{
           </UserContainer>
           <Title>Seus Agendamentos</Title>
         </Header>
-
+        <Agendamentos>
+        <TitleAgendamento>
+          Seus Agendamentos
+        </TitleAgendamento>
+        <AgendamentoCard data={agendamentos[0]} />
+        </Agendamentos>
 
       </Container>
     );

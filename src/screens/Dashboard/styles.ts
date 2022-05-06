@@ -3,6 +3,8 @@ import { Feather } from '@expo/vector-icons';
 import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import {getBottomSpace, getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { BorderlessButton } from 'react-native-gesture-handler';
+import { DatalistProps } from '.';
+import { FlatList } from 'react-native';
 
 export const Container = styled.View`
   flex: 1;
@@ -14,11 +16,8 @@ export const Header = styled.View`
   width: 100%;
   height: ${RFPercentage(27)}px;
 
-  align-items: center;
   background-color: ${({ theme }) => theme.colors.secondary};
-  justify-content: flex-end;
-
-  padding-bottom: 20px;
+  flex-direction: row;
 `;
 
 
@@ -63,7 +62,6 @@ export const LogoutButton = styled(BorderlessButton)`
 
 `;
 
-
 export const Icon = styled(Feather)`
   color: ${({ theme }) => theme.colors.attention};
   font-size : ${RFValue(24)}px;
@@ -76,3 +74,26 @@ export const Title = styled.Text`
   margin-top: 20px;
   color: ${({ theme }) => theme.colors.shape};
 `;
+
+export const Agendamentos = styled.View`
+  flex: 1%;
+  padding: 0 24px;
+  margin-top: ${RFPercentage(12)}px;
+`;
+
+export const AgendamentoList = styled(
+  FlatList as new () => FlatList <DatalistProps>
+  ).attrs({
+  showsVerticalScrollIndicator:false,
+  contentContainerStyle: { 
+    paddingBottom: getBottomSpace()
+  }
+})
+`
+`;
+export const TitleAgendamento= styled.Text`
+  font-size: ${RFValue(18)}px;
+  font-family: ${({ theme }) => theme.fonts.regular};
+  margin-bottom: 16px;
+`;
+

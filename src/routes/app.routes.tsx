@@ -20,7 +20,7 @@ export const AppRoutes = () =>{
                 tabBarInactiveTintColor: theme.colors.text,
                 tabBarLabelPosition: 'beside-icon', 
                 tabBarStyle: {
-                    height: 88,
+                    height: 60,
                     paddingVertical: Platform.OS === 'ios' ? 20 : 0,
                 }
             }}
@@ -51,7 +51,7 @@ export const AppRoutes = () =>{
                     )
                 }}
             />
-            <Screen
+            {/* <Screen
                 name="Agendamento"
                 component={Register}
                 options={{
@@ -63,7 +63,7 @@ export const AppRoutes = () =>{
                         />
                     )
                 }}
-            />
+            /> */}
                 
         </Navigator>
     );

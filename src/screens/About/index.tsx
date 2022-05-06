@@ -44,7 +44,7 @@ export const About =({
     return (
       <Container>
         <Header>
-          <Button title="Voltar para Home" onPress={closeAbout} />
+          <Button title="Voltar para Tela de Login" onPress={closeAbout} />
         </Header>
 
         <Footer>

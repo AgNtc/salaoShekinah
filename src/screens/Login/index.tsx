@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
+import Alert from 'react-native';
 import { 
-    ScrollView,
-    Linking,
     Modal,
-    Text,
     TouchableWithoutFeedback,
     Keyboard 
 } from 'react-native';
@@ -17,6 +15,8 @@ import LogoSvg3 from '../../assets/Cabelereiro3.svg';
 
 import { LoginSocialButton } from '../../components/LoginSocialButton';
 import { About } from '../About';
+import { useAuth } from '../../hooks/auth';
+
 
 import { 
     Container,
@@ -35,7 +35,27 @@ import {
 
 export const Login = () =>{    
     const [aboutModalOpen, setAboutModalOpen] = useState(false);
+    const { SignInWithGoogle, SignInWithApple } = useAuth();
 
+    async function handleSignInWithGoogle(){
+      try{
+        await SignInWithGoogle()
+      }catch (err){
+          console.log(err);
+          Alert.alert('Ocorreu um erro ao fazer login com o Google')
+      }
+    }
+    
+    async function handleSignInWithApple(){
+      try{
+        await SignInWithApple()
+      }catch (err){
+          console.log(err);
+          Alert.alert('Ocorreu um erro ao fazer login com a conta apple')
+      }
+    }
+    
+    
     const handleOpenModal = () => {
         setAboutModalOpen(true);
         console.log('abriu');
@@ -69,8 +89,16 @@ export const Login = () =>{
 
           <Footer>
             <FooterWrapper>
-              <LoginSocialButton title="Entrar com Google" svg={GoogleSvg} />
-              <LoginSocialButton title="Entrar com Apple" svg={AppSvg} />
+              <LoginSocialButton 
+                title="Entrar com Google" 
+                svg={GoogleSvg} 
+                onPress={handleSignInWithGoogle}
+              />
+              <LoginSocialButton 
+                title="Entrar com Apple" 
+                svg={AppSvg}
+                onPress={handleSignInWithApple}
+              />
             </FooterWrapper>
             <TextMain>
               Agora em sua versão app com uma cara {`\n`}
